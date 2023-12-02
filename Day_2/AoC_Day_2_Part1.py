@@ -1,5 +1,7 @@
 #Advent of Code
 #Day 2: Cube Conundrum
+import re
+
 def isLegal(number, colour):
     if colour == "red" and number <= 12:
         return True
