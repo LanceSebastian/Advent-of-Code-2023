@@ -15,7 +15,7 @@ def processLine(line):
 
 def readFile():
     total = 0
-    with open("F:\Lance's Stuff\GitHub\Advent-of-Code-2023\Day_1\Puzzle_Input.txt") as file:
+    with open("Puzzle_Input.txt") as file:
         for line in file:
             total += processLine(line)
     return total
