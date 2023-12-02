@@ -10,6 +10,16 @@ def isLegal(number, colour):
     return False
 
 
+def getGameID(line):
+    game_id = ""
+    for char in line[5::]:
+        if char == ':':
+            break
+        game_id += char
+        
+    return game_id
+
+
 def processGame(game):
     for cube in game:
         if not isLegal(cube[0],cube[1]):
