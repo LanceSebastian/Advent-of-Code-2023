@@ -53,7 +53,7 @@ def processLine(line):
         if not isLegal(cube[0],cube[1]):
             game_id = 0
 
-    return game_id
+    return int(game_id)
 
 
 
