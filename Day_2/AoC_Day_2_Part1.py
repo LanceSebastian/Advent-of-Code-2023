@@ -66,7 +66,7 @@ def readFile():
 
 
 def main():
-    print("Hello World")
+    print(readFile())
 
 if __name__ == '__main__':
     main()
