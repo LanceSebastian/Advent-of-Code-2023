@@ -3,11 +3,11 @@
 import re
 
 def isLegal(number, colour):
-    if colour == "red" and number <= 12:
+    if colour == "red" and int(number) <= 12:
         return True
-    if colour == "green" and number <= 13:
+    if colour == "green" and int(number) <= 13:
         return True
-    if colour == "blue" and number <= 14:
+    if colour == "blue" and int(number) <= 14:
         return True
     return False
 
