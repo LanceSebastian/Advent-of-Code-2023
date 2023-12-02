@@ -1,5 +1,18 @@
 #Advent of Code
 #Day 2: Cube Conundrum
+def processLine(line):
+    legal = True
+    game_id = getGameID(line)
+    game_record = getRecords(line)
+    for game in game_record:
+        legal = processGame(game)
+        if not legal:
+            return 0
+
+    return game_id
+
+
+
 def readFile():
     sum = 0
     with open("sample.txt") as file:
