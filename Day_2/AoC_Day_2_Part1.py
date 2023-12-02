@@ -22,10 +22,6 @@ def getGameID(line):
     return game_id
 
 
-def processGame(game):
-    for cube in game:
-        if not isLegal(cube[0],cube[1]):
-            return False
 def getRecords(line):
     startIndex = 0
 
@@ -53,10 +49,9 @@ def processLine(line):
     legal = True
     game_id = getGameID(line)
     game_record = getRecords(line)
-    for game in game_record:
-        legal = processGame(game)
-        if not legal:
-            return 0
+    for cube in game_record:
+        if not isLegal(cube[0],cube[1]):
+            game_id = 0
 
     return game_id
 
