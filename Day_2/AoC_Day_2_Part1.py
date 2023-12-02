@@ -24,6 +24,27 @@ def processGame(game):
     for cube in game:
         if not isLegal(cube[0],cube[1]):
             return False
+def getRecords(line):
+    startIndex = 0
+
+    for char in line:
+        startIndex += 1
+        if char == ':':
+            break    
+    
+    line_of_games = line[startIndex:]
+    line_of_games = line_of_games.strip('\n')
+    game_list = re.split(',|;', line_of_games)
+    final_game_list = []
+
+    for cube in game_list:
+        data = cube[1::]
+        data = data.split(' ')
+        final_game_list.append(data)
+        
+
+    return final_game_list
+        
 
 
 def processLine(line):
