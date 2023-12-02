@@ -41,7 +41,7 @@ def processLine(line):
 
 def readFile():
     sum = 0
-    with open("sample.txt") as file:
+    with open("F:/Lance's Stuff/GitHub/Advent-of-Code-2023/Day_2/sample.txt") as file:
         for line in file:
             sum += processLine(line)
     return sum
