@@ -1,5 +1,15 @@
 #Advent of Code
 #Day 2: Cube Conundrum
+def isLegal(number, colour):
+    if colour == "red" and number <= 12:
+        return True
+    if colour == "green" and number <= 13:
+        return True
+    if colour == "blue" and number <= 14:
+        return True
+    return False
+
+
 def processGame(game):
     for cube in game:
         if not isLegal(cube[0],cube[1]):
