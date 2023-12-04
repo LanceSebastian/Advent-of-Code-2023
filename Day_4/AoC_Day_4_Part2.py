@@ -2,7 +2,6 @@
 #Day 4: Scratchcards
 
 def calculateWinnings(card):
-    output = 1
     number_of_wins = 0
     win_numbers = []
     own_numbers = []
@@ -16,13 +15,7 @@ def calculateWinnings(card):
         if number in own_numbers:
             number_of_wins += 1
 
-    if number_of_wins == 0:
-        return 0
-    
-    for index in range(number_of_wins-1):
-        output *= 2
-
-    return output
+    return number_of_wins
 
 def main():
     sum = 0
@@ -32,4 +25,4 @@ def main():
     print(sum)
 
 if __name__ == '__main__':
-    main()
+    main()    main()
