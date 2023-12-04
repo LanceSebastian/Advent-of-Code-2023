@@ -24,9 +24,11 @@ def calculateWinnings(card):
 def main():
     sum = 0
     with open("Day_4/Puzzle_input.txt") as file:
-        for card in file:
-            sum += calculateWinnings(card)
+        for index, card in enumerate(file, start = 1):
+            sum += simulateScratchcards(file.name, calculateWinnings(card), index)
     print(sum)
 
 if __name__ == '__main__':
-    main()    main()
+    main()
+    
+#linecache.getline(file.name, index+1)
