@@ -1,6 +1,10 @@
 #Advent of Code
 #Day 4: Scratchcards
 
+def simulateScratchcards(filename, number_of_wins, current_index):
+    
+
+
 def calculateWinnings(card):
     number_of_wins = 0
     win_numbers = []
