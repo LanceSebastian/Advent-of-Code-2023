@@ -37,24 +37,32 @@ def findPartNumbers(line,prev_line, next_line):
 
     return output
 
-def findNumbers(lines, index):
+
+
+
+def findRatios(lines, index):
     start_index = index-1
-    end_index = index+1
+    end_index = index+2
+
     numbers_found = 0
+    first_part=""
+    second_part="0"
+
+    surrounding_numbers = []
     for line in lines:
-        surrounding_numbers += line[start_index:end_index]
+        surrounding_numbers.append(line[start_index:end_index])
     
     print(surrounding_numbers)
 
 
-def findGearRatios(line, prev_line, next_line):
-    firstGear=0
-    secondGear=0
+def findGears(line, prev_line, next_line):
     lines = [prev_line, line, next_line]
 
     for index, char in enumerate(line):
         if char == '*':
-            findNumbers(lines, index)
+            findRatios(lines, index)
+    
+    
 
 
 def readFile():
@@ -63,10 +71,9 @@ def readFile():
     line_index = 0
     next_line = []
     with open("F:/Lance's Stuff/GitHub/Advent-of-Code-2023/Day_3/sample.txt") as file:
-        line_index = file.tell()
         for index, line in enumerate(file, start = 1):
             next_line = linecache.getline(file.name, index+1)
-            sum += findPartNumbers(line,previous_line, next_line)
+            findGears(line,previous_line, next_line)
             previous_line = line
     return sum
 
