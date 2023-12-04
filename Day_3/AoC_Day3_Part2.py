@@ -40,40 +40,78 @@ def findPartNumbers(line,prev_line, next_line):
 
 
 
+def numbersFound(surrounding):
+    output = 0
+    if surrounding[1].isdigit():
+        output += 1
+    if surrounding[7].isdigit():
+        output += 1
+    if surrounding[4].isdigit():
+        output += 1
+    if surrounding[6].isdigit():
+        output += 1
+    
+    if output == 2:
+        return output
+        
+    digits_found = 0
+    for char in surrounding[0:3]:
+        if char.isdigit():
+            digits_found += 1
+    if digits_found == 2 and not surrounding[1].isdigit():
+        return 2
+
+    digits_found = 0
+    for char in surrounding[6:9]:
+        if char.isdigit():
+            digits_found += 1
+    if digits_found == 2 and not surrounding[7].isdigit():
+        return 2
+    
+    return output
+
+
 def findRatios(lines, index):
     start_index = index-1
     end_index = index+2
 
-    numbers_found = 0
     first_part=""
-    second_part="0"
+    second_part=""
 
     surrounding_numbers = []
     for line in lines:
-        surrounding_numbers.append(line[start_index:end_index])
+        surrounding_numbers += line[start_index:end_index]
     
-    print(surrounding_numbers)
+    if numbersFound(surrounding_numbers) < 2:
+        return
+    
+    #look at first layer
+        #slice the numbers out
+    #look at second
+        #slice the numbers out
+    #look at third
+        #slice the numbers out
+    #Get numbers
+
 
 
 def findGears(line, prev_line, next_line):
     lines = [prev_line, line, next_line]
+    output=0
 
     for index, char in enumerate(line):
         if char == '*':
-            findRatios(lines, index)
-    
-    
-
+            output = findRatios(lines, index)
+    return output
 
 def readFile():
     sum = 0
     previous_line = []
-    line_index = 0
     next_line = []
     with open("F:/Lance's Stuff/GitHub/Advent-of-Code-2023/Day_3/sample.txt") as file:
         for index, line in enumerate(file, start = 1):
             next_line = linecache.getline(file.name, index+1)
-            findGears(line,previous_line, next_line)
+            sum += findGears(line,previous_line, next_line)
             previous_line = line
     return sum
 
