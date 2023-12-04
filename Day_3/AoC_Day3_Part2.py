@@ -14,7 +14,9 @@ def isPartNumber(neighbouring_lines, number_index, number_length):
         surrounding_characters += neighbouring_lines[1][search_index:end_index]
     if neighbouring_lines[2]:
         surrounding_characters += neighbouring_lines[2][search_index:end_index]
+    
     surrounding = ' '.join(surrounding_characters)
+
     special = set("!@#$%^&*()_+[]:;<>,?~/-=")
     return any(char in special for char in surrounding)
 
@@ -28,17 +30,40 @@ def findPartNumbers(line,prev_line, next_line):
         if char.isdigit():
             number += char
             start_index = index if number_length <= 0 else start_index
+
         if not char.isdigit() and number_length > 0:
             output += int(number) if isPartNumber(lines, start_index, number_length) else 0
             number = ""
+
     return output
+
+def findNumbers(lines, index):
+    start_index = index-1
+    end_index = index+1
+    numbers_found = 0
+    for line in lines:
+        surrounding_numbers += line[start_index:end_index]
+    
+    print(surrounding_numbers)
+
+
+def findGearRatios(line, prev_line, next_line):
+    firstGear=0
+    secondGear=0
+    lines = [prev_line, line, next_line]
+
+    for index, char in enumerate(line):
+        if char == '*':
+            findNumbers(lines, index)
+
 
 def readFile():
     sum = 0
     previous_line = []
     line_index = 0
     next_line = []
-    with open("F:/Lance's Stuff/GitHub/Advent-of-Code-2023/Day_3/Puzzle_input.txt") as file:
+    with open("F:/Lance's Stuff/GitHub/Advent-of-Code-2023/Day_3/sample.txt") as file:
+        line_index = file.tell()
         for index, line in enumerate(file, start = 1):
             next_line = linecache.getline(file.name, index+1)
             sum += findPartNumbers(line,previous_line, next_line)
