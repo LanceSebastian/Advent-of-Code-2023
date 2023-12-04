@@ -44,8 +44,8 @@ def processLine(line):
         name = cube[1]
         number = int(cube[0])
 
-        if name == "blue" and number > blue_number:
-            blue_number = number
+        if name == "blue":
+            blue_number= max(blue_number,number)
         if name == "red" and number > red_number:
             red_number = number
         if name == "green" and number > green_number:
