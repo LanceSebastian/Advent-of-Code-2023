@@ -17,7 +17,7 @@ def isPartNumber(neighbouring_lines, number_index, number_length):
     
     surrounding = ' '.join(surrounding_characters)
 
-    special = set("!@#$%^&*()_+[]:;<>,?~/-")
+    special = set("!@#$%^&*()_+[]:;<>,?~/-=")
     return any(char in special for char in surrounding)
 
 def findPartNumbers(line,prev_line, next_line):
