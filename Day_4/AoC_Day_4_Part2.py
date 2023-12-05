@@ -1,8 +1,6 @@
 #Advent of Code
 #Day 4: Scratchcards
 
-def simulateScratchcards(filename, number_of_wins, current_index):
-    
 
 
 def calculateWinnings(card):
@@ -30,5 +28,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-    
-#linecache.getline(file.name, index+1)
