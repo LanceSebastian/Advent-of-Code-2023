@@ -34,12 +34,18 @@ def calculateWinnings(card):
 
     return number_of_wins
 
+
 def main():
-    sum = 0
+    total_cards = 0
+    win_array = []
     with open("Day_4/Puzzle_input.txt") as file:
         for index, card in enumerate(file, start = 1):
-            sum += simulateScratchcards(file.name, calculateWinnings(card), index)
-    print(sum)
+            win_array.append(calculateWinnings(card))
+
+        total_cards = sum(calculateCardsGenerated(win_array))
+
+    print(total_cards)
+
 
 if __name__ == '__main__':
     main()
