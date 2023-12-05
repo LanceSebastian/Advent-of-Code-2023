@@ -1,6 +1,21 @@
 #Advent of Code
 #Day 4: Scratchcards
 
+def calculateCardsGenerated(win_array):
+    card_generation_array = []
+
+    for card in win_array[::-1]:
+        total_cards = 0
+        new_cards = []
+        
+        for index, cards_generated in enumerate(card_generation_array[::-1]):
+            if index >= card : break
+            new_cards.append(cards_generated)
+        
+        total_cards = 1 + sum(new_cards)
+        card_generation_array.append(total_cards)
+
+    return card_generation_array
 
 
 def calculateWinnings(card):
