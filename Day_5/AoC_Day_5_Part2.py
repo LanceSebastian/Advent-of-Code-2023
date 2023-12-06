@@ -64,7 +64,13 @@ def get_seeds(seed_packet):
 
     return arranged_packets
 
+#Look more into use of yield
 
+"""
+This algorithm NEEDS to be more efficient.
+Currently sat here for 30 minutes waiting for an output still.
+Think about working in ranges or working with estimations
+"""
 def main():
     lowest_location = None
     seed_packet = []
@@ -85,6 +91,8 @@ def main():
                 seed_range -= 1
 
     print(lowest_location)
+
+
 
 if __name__ == '__main__':
     main()
