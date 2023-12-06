@@ -71,7 +71,8 @@ def get_seeds(seed_packet):
 """
 This algorithm NEEDS to be more efficient.
 Currently sat here for 30 minutes waiting for an output still.
-Think about working in ranges or working with estimations
+Think about working in ranges or working with estimations and
+then narrowing down on the answer.
 """
 def main():
     lowest_location = None
