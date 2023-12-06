@@ -64,7 +64,9 @@ def get_seeds(seed_packet):
 
     return arranged_packets
 
-#Look more into use of yield
+#Look into yield
+#look into functools, reduce
+#look into zip
 
 """
 This algorithm NEEDS to be more efficient.
