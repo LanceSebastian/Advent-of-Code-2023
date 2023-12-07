@@ -17,10 +17,8 @@ def main():
     output = []
     with open("Day_6/Puzzle_input.txt") as file:
         lines = file.read().splitlines()
-        time_array, distance_array = re.findall(r"\d+", lines[0]), re.findall(r"\d+", lines[1])
-        for index, time in enumerate(time_array):
-            distance = distance_array[index]
-            output.append(calculateRecordBeat(time, distance))
+        time, distance = "".join(re.findall(r"\d+", lines[0])), "".join(re.findall(r"\d+", lines[1]))
+        output.append(calculateRecordBeat(time, distance))
     
         
     print(reduce(operator.mul, output, 1))
