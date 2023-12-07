@@ -3,7 +3,7 @@
 
 def mapProcess(map, seed):
     output = None
-    match = False
+    seed = int(seed)
     for line in map:
         range = int(line[2])
         source = int(line[1])
@@ -62,7 +62,6 @@ def main():
                 lowest_location = location
 
     print(lowest_location)
-
 
 
 if __name__ == '__main__':
