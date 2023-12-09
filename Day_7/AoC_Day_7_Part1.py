@@ -28,10 +28,9 @@ def calculateWinnings(hand, bid):
 def main():
     total_winnings = 0
     with open("Day_7/sample.txt") as file:
-        for line in file:
-            hand = line.split()[0]
-            bid = int(line.split()[1])
-            total_winnings += calculateWinnings(hand, bid)
+        sorted_array = rankHands(file)
+        for index, play in enumerate(sorted_array, start = 1):
+            total_winnings += play[1] * index
             
     print(total_winnings)
 
