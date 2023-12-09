@@ -6,6 +6,25 @@ from collections import Counter
         '2':1,'3':2,'4':3,'5':4,'6':5,'7':6,'8':7,
         '9':8,'T':9,'J':10,'Q':11,'K':12,'A':13
     }
+def getType(hand):
+    card_count = Counter(hand)
+    temp_array = [count for _,count in card_count.items()]
+
+    size = len(temp_array)
+    if size == 1:
+        return 6 
+    if size == 2:
+        if temp_array.count(4):
+            return 5
+        return 4
+    if temp_array.count(3):
+        return 3
+    if temp_array.count(2) == 2:
+        return 2
+    if temp_array.count(2) == 1:
+        return 1
+    return 0
+
 def rankHands(file):
     high, pair, two_pairs, three_kinds, house, four_kinds, five_kinds = [],[],[],[],[],[],[]
     sorted_array = []
