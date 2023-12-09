@@ -72,7 +72,7 @@ def rankHands(file):
 
 def main():
     total_winnings = 0
-    with open("Day_7/sample.txt") as file:
+    with open("Day_7/Puzzle_input.txt") as file:
         sorted_array = rankHands(file)
         for index, play in enumerate(sorted_array, start = 1):
             total_winnings += play[1] * index
