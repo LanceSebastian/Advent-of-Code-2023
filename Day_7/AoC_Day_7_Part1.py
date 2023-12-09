@@ -6,6 +6,21 @@ from collections import Counter
         '2':1,'3':2,'4':3,'5':4,'6':5,'7':6,'8':7,
         '9':8,'T':9,'J':10,'Q':11,'K':12,'A':13
     }
+def quicksort(array):
+    if len(array) <= 1:
+        return array
+    pivot = card_comparison(array[len(array) // 2][0])
+
+    left = [x for x in array if card_comparison(x[0]) < pivot]
+    middle = [x for x in array if card_comparison(x[0]) == pivot]
+    right = [x for x in array if card_comparison(x[0]) > pivot]
+
+    left_sorted = quicksort(left)
+    right_sorted = quicksort(right)
+
+    sorted_array = left_sorted + middle + right_sorted
+    return sorted_array
+
 def getType(hand):
     card_count = Counter(hand)
     temp_array = [count for _,count in card_count.items()]
